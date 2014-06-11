@@ -196,9 +196,11 @@ tagsInput.directive('tagsInput', function($timeout, $document, tagsInputConfig) 
                 .on('input-blur', function() {
                     if (!options.addFromAutocompleteOnly) {
                         if (options.addOnBlur) {
+                            if (scope.newTag.text.length > 0) {
+                              input[0].focus();
+                            }
                             tagList.addText(scope.newTag.text);
                         }
-
                         ngModelCtrl.$setValidity('leftoverText', options.allowLeftoverText ? true : !scope.newTag.text);
                     }
                 });
