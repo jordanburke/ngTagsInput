@@ -3,7 +3,7 @@
     "name": "Michael Benford",
     "email": "michael@michaelbenford.net"
   },
-  "name": "ng-tags-input-jb",
+  "name": "ng-tags-input",
   "prettyName": "ngTagsInput",
   "version": "2.0.1",
   "description": "Tags input directive for AngularJS",
