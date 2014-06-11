@@ -197,7 +197,7 @@ tagsInput.directive('tagsInput', function($timeout, $document, tagsInputConfig) 
                     if (!options.addFromAutocompleteOnly) {
                         if (options.addOnBlur) {
                             if (scope.newTag.text.length > 0) {
-                              input[0].focus();
+                                input[0].focus();
                             }
                             tagList.addText(scope.newTag.text);
                         }
