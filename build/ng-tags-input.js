@@ -5,9 +5,11 @@
  * Copyright (c) 2013-2014 Michael Benford
  * License: MIT
  *
- * Generated at 2014-04-13 21:25:38 -0300
+ * Generated at 2014-06-11 11:14:23 -0400
  */
 (function() {
+'use strict';
+
 'use strict';
 
 var KEYS = {
@@ -20,6 +22,8 @@ var KEYS = {
     down: 40,
     comma: 188
 };
+
+'use strict';
 
 function SimplePubSub() {
     var events = {};
@@ -71,7 +75,11 @@ function replaceAll(str, substr, newSubstr) {
     return str.replace(new RegExp(expression, 'gi'), newSubstr);
 }
 
+'use strict';
+
 var tagsInput = angular.module('ngTagsInput', []);
+
+'use strict';
 
 /**
  * @ngdoc directive
@@ -269,9 +277,11 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
                 .on('input-blur', function() {
                     if (!options.addFromAutocompleteOnly) {
                         if (options.addOnBlur) {
+                            if (scope.newTag.text.length > 0) {
+                                input[0].focus();
+                            }
                             tagList.addText(scope.newTag.text);
                         }
-
                         ngModelCtrl.$setValidity('leftoverText', options.allowLeftoverText ? true : !scope.newTag.text);
                     }
                 });
@@ -369,6 +379,8 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
         }
     };
 }]);
+
+'use strict';
 
 /**
  * @ngdoc directive
@@ -605,6 +617,8 @@ tagsInput.directive('autoComplete', ["$document","$timeout","$sce","tagsInputCon
     };
 }]);
 
+'use strict';
+
 /**
  * @ngdoc directive
  * @name tiTranscludeAppend
@@ -620,6 +634,8 @@ tagsInput.directive('tiTranscludeAppend', function() {
         });
     };
 });
+
+'use strict';
 
 /**
  * @ngdoc directive
@@ -675,6 +691,8 @@ tagsInput.directive('tiAutosize', function() {
         }
     };
 });
+
+'use strict';
 
 /**
  * @ngdoc service
@@ -764,9 +782,12 @@ tagsInput.provider('tagsInputConfig', function() {
 
 /* HTML templates */
 tagsInput.run(["$templateCache", function($templateCache) {
-    $templateCache.put('ngTagsInput/tags-input.html',
+  'use strict';
+
+  $templateCache.put('ngTagsInput/tags-input.html',
     "<div class=\"host\" tabindex=\"-1\" ti-transclude-append=\"\"><div class=\"tags\" ng-class=\"{focused: hasFocus}\"><ul class=\"tag-list\"><li class=\"tag-item\" ng-repeat=\"tag in tagList.items track by track(tag)\" ng-class=\"{ selected: tag == tagList.selected }\"><span>{{getDisplayText(tag)}}</span> <a class=\"remove-button\" ng-click=\"tagList.remove($index)\">{{options.removeTagSymbol}}</a></li></ul><input class=\"input\" placeholder=\"{{options.placeholder}}\" tabindex=\"{{options.tabindex}}\" ng-model=\"newTag.text\" ng-change=\"newTagChange()\" ng-trim=\"false\" ng-class=\"{'invalid-tag': newTag.invalid}\" ti-autosize=\"\"></div></div>"
   );
+
 
   $templateCache.put('ngTagsInput/auto-complete.html',
     "<div class=\"autocomplete\" ng-show=\"suggestionList.visible\"><ul class=\"suggestion-list\"><li class=\"suggestion-item\" ng-repeat=\"item in suggestionList.items track by track(item)\" ng-class=\"{selected: item == suggestionList.selected}\" ng-click=\"addSuggestion()\" ng-mouseenter=\"suggestionList.select($index)\" ng-bind-html=\"highlight(item)\"></li></ul></div>"
